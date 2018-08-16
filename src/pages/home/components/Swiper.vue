@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" v-if="hasData">
         <swiper :options="swiperOption">
         <swiper-slide v-for="item in swiperList" :key="item.id">
             <img class="swiper-img" :src="item.imgUrl">
@@ -15,8 +15,13 @@
         data () {
             return {
                 swiperOption: {
-                    autoplay: true,
+                    observer:true, 
+                    observeParents:true,
                     loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
                     pagination: {
                         el: '.swiper-pagination',
                         type: 'bullets',
@@ -29,7 +34,8 @@
             }
         },
         props: {
-            swiperList: Array
+            swiperList: Array,
+            hasData: Boolean
         }
     }
 </script>

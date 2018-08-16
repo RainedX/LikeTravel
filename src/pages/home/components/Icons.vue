@@ -1,5 +1,5 @@
 <template>
-    <div class="icons">
+    <div class="icons" v-if="hasData">
         <swiper :options="swiperOption">
             <swiper-slide v-for="(itemList, index) in pages" :key="index">
                 <div class="icon" v-for="item in iconList" :key="item.id">
@@ -34,7 +34,8 @@ export default {
     };
   },
   props: {
-        iconList: Array
+        iconList: Array,
+        hasData: Boolean
     },
   computed: {
       pages () {

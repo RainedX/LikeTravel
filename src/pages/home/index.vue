@@ -1,8 +1,8 @@
 <template>
     <div>
         <home-header :city="city"></home-header>
-        <home-swiper :swiperList="swiperList"></home-swiper>
-        <home-icons :iconList="iconList"></home-icons>
+        <home-swiper :swiperList="swiperList" :hasData="hasData"></home-swiper>
+        <home-icons :iconList="iconList" :hasData="hasData"></home-icons>
         <home-recommend :recommendList="recommendList"></home-recommend>
         <home-weekend :weekendList="weekendList"></home-weekend>
     </div>
@@ -24,7 +24,8 @@ export default {
             swiperList: [],
             iconList: [],
             recommendList: [],
-            weekendList: []
+            weekendList: [],
+            hasData: false
         };
     },
     methods: {
@@ -37,6 +38,8 @@ export default {
                     this.iconList = response.data.iconList;
                     this.recommendList = response.data.recommendList;
                     this.weekendList = response.data.weekendList;
+
+                    this.hasData = true; //解决异步数据渲染swiper时，loop失效
                 }
             })
         }

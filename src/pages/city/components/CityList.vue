@@ -48,7 +48,7 @@ export default {
     },
     mounted() {
         new BScroll(this.$refs.list)
-    },
+    }
 }
 
 </script>

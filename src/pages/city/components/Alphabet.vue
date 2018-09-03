@@ -1,12 +1,13 @@
 <template>
     <ul class="list">
-        <li class="item">A</li>
-        <li class="item">B</li>
-        <li class="item">C</li>
-        <li class="item">D</li>
-        <li class="item">E</li>
-        <li class="item">F</li>
-        <li class="item">G</li>
+        <li 
+            class="item" 
+            v-for="(item ,key) in citys" 
+            :key="key"
+            @click="handleLetterClick"
+        >
+            {{key}}
+        </li>
     </ul>
 </template>
 
@@ -16,6 +17,14 @@ export default {
     data () {
         return {
         };
+    },
+    props: {
+        citys: Object
+    },
+    methods: {
+        handleLetterClick: function() {
+            
+        }
     }
 }
 

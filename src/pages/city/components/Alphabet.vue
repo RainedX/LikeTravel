@@ -51,11 +51,16 @@ export default {
         handleTouchMove: function (e) {
             if (this.flag) {
                 const startY = this.$refs[this.startAlphabet][0].offsetTop;
-                const touchY = e.touches[0].clientY - 74;
-                const length = Math.floor((touchY - startY) / 20);
-                if (this.startIndex + length >= 0 && this.startIndex + length < 26) { 
-                    this.$emit('change', this.letters[this.startIndex + length]);
+                if (this.timer) {
+                    clearTimeout(this.timer);
                 }
+                this.timer = setTimeout(() => {
+                    const touchY = e.touches[0].clientY - 74;
+                    const length = Math.floor((touchY - startY) / 20);
+                    if (this.startIndex + length >= 0 && this.startIndex + length < 26) { 
+                        this.$emit('change', this.letters[this.startIndex + length]);
+                    }
+                }, 16);
             }
         },
         handleTouchEnd: function () {

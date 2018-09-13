@@ -7,20 +7,21 @@
             <i class="iconfont icon-sousuo"></i> 输入城市/景点/游玩主题
         </div>
         <router-link to="/city">
-            <div class="header-right">{{city}}<i class="iconfont icon-jiantou"></i></div>
+            <div class="header-right">{{this.$store.state.city}}<i class="iconfont icon-jiantou"></i></div>
         </router-link>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'HomeHeader',
     data () {
         return {
         };
     },
-    props: {
-        city: String
+    computed: {
+        ...mapState(['city'])
     }
 }
 
@@ -48,7 +49,8 @@ export default {
         .header-right
             color #fff
             float right
-            width 1.24rem 
+            min-width 1.04rem
+            padding .1rem 
             text-align center
             .icon-jiantou 
                 margin-left .04rem

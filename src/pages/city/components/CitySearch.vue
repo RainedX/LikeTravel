@@ -5,7 +5,11 @@
         </div>
         <div class="search-content" ref="search" v-show="keyword">
             <ul>
-                <li class="search-item border-bottom" v-for="item in list" :key=item.id>{{item.name}}</li>
+                <li
+                    @click="handleCityClick(item.name)"
+                    class="search-item border-bottom" 
+                    v-for="item in list" 
+                    :key=item.id>{{item.name}}</li>
                 <li class="search-item border-bottom" v-show="!list.length">没有匹配到数据</li>
             </ul>
         </div>
@@ -53,6 +57,12 @@ export default {
     },
     mounted() {
         this.scroll = new BScroll(this.$refs.search);
+    },
+    methods: {
+        handleCityClick(city) {
+            this.$store.commit('changeCity', city);
+            this.$router.push('/');
+        }
     }
 }
 

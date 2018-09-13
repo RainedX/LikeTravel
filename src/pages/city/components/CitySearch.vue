@@ -44,6 +44,7 @@ export default {
 
             this.timer = setTimeout(() => {
                 const result = [];
+                
                 for (const key in this.cities) {
                    this.cities[key].forEach(value => {
                        if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {

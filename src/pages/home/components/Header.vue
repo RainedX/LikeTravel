@@ -31,7 +31,7 @@ export default {
     .header
         display flex
         color #fff
-        line-height .86rem
+        line-height .76rem
         background $bgColor
         .header-left
             padding-left .2rem
@@ -39,7 +39,6 @@ export default {
             width .64rem
         .header-input
             flex 1
-            line-height .64rem
             margin .12rem 0 .12rem .2rem
             background-color #fff
             border-radius .1rem
